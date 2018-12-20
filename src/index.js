@@ -1,5 +1,23 @@
-import greeting from './greet'
-console.log(greeting)
+import React from 'react'
+import ReactDOM from 'react-dom'
+import '@babel/polyfill'
+import App from './App'
+import './styles.css'
+import DefaultErrorBoundery from './DefaultErrorBoundery';
 
+if (process.env.Node_ENV === 'development') {
+    const axe = require('react-axe')
+    axe(React, ReactDOM, 1000)
+}
 
-
+ReactDOM.render( <
+    React.StrictMode >
+    <
+    DefaultErrorBoundery >
+    <
+    App / >
+    <
+    /DefaultErrorBoundery> ,  < /
+    React.StrictMode > ,
+    document.getElementById('app')
+)
